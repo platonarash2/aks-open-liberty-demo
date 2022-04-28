@@ -1,0 +1,13 @@
+apiVersion: apps.openliberty.io/v1beta2
+kind: OpenLibertyApplication
+metadata:
+  name: javaee-cafe-cluster
+  namespace: javaee-cafe
+spec:
+  replicas: 3
+  applicationImage: javademoacr.azurecr.io/javaee-cafe:1.0.42
+  pullPolicy: Always
+  service:
+    type: LoadBalancer
+    targetPort: 9080
+    port: 80
